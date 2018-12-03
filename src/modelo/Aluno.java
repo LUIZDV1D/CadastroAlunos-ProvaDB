@@ -12,7 +12,7 @@ package modelo;
 public class Aluno {
     private int idaluno;
     private String nome;
-    private String idade;
+    private int idade;
     private String npai;
     private String nmae;
     private String cidade;
@@ -37,11 +37,11 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public String getIdade() {
+    public int getIdade() {
         return idade;
     }
 
-    public void setIdade(String idade) {
+    public void setIdade(int idade) {
         this.idade = idade;
     }
 
