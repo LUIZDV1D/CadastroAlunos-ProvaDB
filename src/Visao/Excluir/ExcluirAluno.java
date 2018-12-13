@@ -63,7 +63,7 @@ public class ExcluirAluno extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         idaluno = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(254, 254, 254));
 

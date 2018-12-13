@@ -57,7 +57,7 @@ public class CadastrarAlunos extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -256,6 +256,7 @@ public class CadastrarAlunos extends javax.swing.JFrame {
         npai.setText("");
         cidadeal.setText("");
         ruaal.setText("");
+        
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
@@ -268,7 +269,7 @@ public class CadastrarAlunos extends javax.swing.JFrame {
         
         if (nome.equals("") || idade.equals("") || npai.equals("") || nmae.equals("")  || cidade.equals("")
                 || rua.equals("")) {
-            JOptionPane.showMessageDialog(null, "Nenhum campo está vazio", 
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode está vazio", 
                     "Cadastro de Alunos", JOptionPane.WARNING_MESSAGE);
         } else {
             Connection con = Conexao.AbrirConexao();

@@ -49,7 +49,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -148,12 +148,9 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(30, 30, 30))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(30, 30, 30))))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4))
+                        .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3)
@@ -194,7 +191,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         String Pass = pass.getText();
 
         if (nome.equals("") || Pass.equals("") || User.equals("")) {
-            JOptionPane.showMessageDialog(null, "Nenhum campo está vazio",
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode está vazio",
                 "Cadastro de Alunos", JOptionPane.WARNING_MESSAGE);
             
             nfunc.setText("");
@@ -271,7 +268,6 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCadastrar1;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLimpar;
@@ -279,7 +275,6 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField nfunc;

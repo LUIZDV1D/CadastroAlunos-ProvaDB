@@ -24,6 +24,40 @@ public class Login extends javax.swing.JFrame {
         setTitle("Cadastro de Alunos");
         setResizable(false);
     }
+    
+    
+    private void Logar() {
+        Connection con = Conexao.AbrirConexao();
+        FuncionarioDAO sql = new FuncionarioDAO(con);
+        String login = user.getText();
+        String senha = pass.getText();
+        
+        if (login.equalsIgnoreCase("") || senha.equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode está vazio", 
+                    "Vídeo Locadora", JOptionPane.WARNING_MESSAGE);
+            user.setText("");
+            pass.setText("");
+        } else {
+            if (sql.Logar(login, senha) == true) {
+                new Thread() {
+                    public void run() {
+                        for (int i = 0; i < 101; i++) {
+                            bprog.setValue(i);
+                            
+                            try {
+                                Thread.sleep(15);
+                            } catch (Exception e) {
+                                e.getMessage();
+                            }
+                        }
+                        
+                        new Menu().setVisible(true);
+                        dispose();
+                    }
+                }.start();
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,6 +87,11 @@ public class Login extends javax.swing.JFrame {
         user.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
 
         pass.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
 
         btnEntrar.setBackground(new java.awt.Color(59, 193, 17));
         btnEntrar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -131,37 +170,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        Connection con = Conexao.AbrirConexao();
-        FuncionarioDAO sql = new FuncionarioDAO(con);
-        String login = user.getText();
-        String senha = pass.getText();
-        
-        if (login.equalsIgnoreCase("") || senha.equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Nenhum campo pode está vazio", 
-                    "Vídeo Locadora", JOptionPane.WARNING_MESSAGE);
-            user.setText("");
-            pass.setText("");
-        } else {
-            if (sql.Logar(login, senha) == true) {
-                new Thread() {
-                    public void run() {
-                        for (int i = 0; i < 101; i++) {
-                            bprog.setValue(i);
-                            
-                            try {
-                                Thread.sleep(15);
-                            } catch (Exception e) {
-                                e.getMessage();
-                            }
-                        }
-                        
-                        new Menu().setVisible(true);
-                        dispose();
-                    }
-                }.start();
-            }
-        }
+        Logar();
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        Logar();
+    }//GEN-LAST:event_passActionPerformed
 
     /**
      * @param args the command line arguments
